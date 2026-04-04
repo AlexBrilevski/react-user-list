@@ -1,10 +1,10 @@
 import classes from './UserItem.module.css';
 
-const UserItem = () => {
+const UserItem = ({ name, age }) => {
   return (
     <div className={classes.userItem}>
-      <p className={classes.name}>Name</p>
-      <p>Age</p>
+      <p className={classes.name}>{name}</p>
+      <p>{age}</p>
     </div>
   );
 };
