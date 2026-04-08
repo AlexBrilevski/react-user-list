@@ -1,10 +1,15 @@
 import { useState } from 'react';
-import classes from './UserDataFrom.module.css';
+import classes from './AddUserFrom.module.css';
+
+const initUserData = {
+  name: '',
+  age: '',
+};
 
 const UserDataForm = ({ onAddUser }) => {
-  const [userData, setUserData] = useState({ name: '', age: '' });
+  const [userData, setUserData] = useState(initUserData);
 
-  const formSubmitHandler = (e) => {
+  const addUserHandler = (e) => {
     e.preventDefault();
     console.log(userData);
 
@@ -24,28 +29,30 @@ const UserDataForm = ({ onAddUser }) => {
     }
 
     onAddUser(userData);
+    setUserData(initUserData);
   };
 
   const inputChangeHandler = (fieldId, e) => {
     setUserData(prevUserData => ({
-       ...prevUserData, 
-       [fieldId]: fieldId === 'age' ? +e.target.value : e.target.value, 
-      }));
+      ...prevUserData,
+      [fieldId]: fieldId === 'age' ? +e.target.value : e.target.value,
+    }));
   };
 
   return (
-    <form onSubmit={formSubmitHandler} className={classes.userDataForm}>
+    <form onSubmit={addUserHandler} className={classes.userDataForm}>
       <div className={classes.formControls}>
         <div className={classes.formControl}>
           <label htmlFor="name">Name</label>
           <input
             id="name"
+            type="text"
             value={userData.name}
             onChange={(e) => inputChangeHandler('name', e)}
           />
         </div>
         <div className={classes.formControl}>
-          <label htmlFor="age">Age</label>
+          <label htmlFor="age">Age (Years)</label>
           <input
             id="age"
             type="number"
@@ -55,7 +62,7 @@ const UserDataForm = ({ onAddUser }) => {
         </div>
       </div>
       <div className={classes.formActions}>
-        <button>Add</button>
+        <button>Add User</button>
       </div>
     </form>
   );

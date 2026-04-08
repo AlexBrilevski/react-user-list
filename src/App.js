@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserDataForm from './components/UserDataForm';
+import AddUserForm from './components/AddUserForm';
 import Users from './components/Users';
 
 const initUsers = [];
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div>
-      <UserDataForm onAddUser={addUser} />
+      <AddUserForm onAddUser={addUser} />
       <Users users={users} />
     </div>
   );
