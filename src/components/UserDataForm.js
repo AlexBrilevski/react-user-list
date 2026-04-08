@@ -7,6 +7,16 @@ const UserDataForm = ({ onAddUser }) => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
+    if (userData.name.length === 0) {
+      console.log('Please enter user name');
+      return;
+    }
+
+    if (userData.name.length < 3) {
+      console.log('User name must be at least 3 characters long');
+      return;
+    }
+
     onAddUser(userData);
   };
 
