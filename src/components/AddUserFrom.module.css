@@ -1,35 +1,32 @@
-.formControls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  text-align: left;
+.add-user-form {
+  width: 90%;
+  max-width: 40rem;
+  margin: 2rem auto;
 }
 
-.formControl {
-  flex-grow: 1;
-}
-
-.formControl label {
+.add-user-form label {
   display: block;
   margin-bottom: 0.5rem;
   color: white;
   font-weight: bold;
 }
 
-.formControl input {
+.add-user-form input {
+  display: block;
   width: 100%;
   padding: 0.5rem;
+  margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   font: inherit;
 }
 
-.formActions {
-  text-align: right;
+.add-user-form input:focus {
+  outline: none;
+  border-color: #4f005f;
 }
 
-.formActions button {
+.add-user-form button {
   padding: 1rem 2rem;
   background-color: #40005d;
   border: 1px solid #40005d;
@@ -39,8 +36,16 @@
   cursor: pointer;
 }
 
-.formActions button:hover,
-.formActions button:active {
+.add-user-form button:hover,
+.add-user-form button:active {
   background-color: #510674;
   border-color: #510674;
+}
+
+.form-controls {
+  margin-bottom: 2rem;
+}
+
+.form-actions {
+  text-align: right;
 }

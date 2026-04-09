@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import Card from './UI/Card';
+
 import classes from './AddUserFrom.module.css';
 
 const initUserData = {
@@ -41,9 +43,9 @@ const AddUserForm = ({ onAddUser }) => {
   };
 
   return (
-    <form onSubmit={addUserHandler}>
-      <div className={classes.formControls}>
-        <div className={classes.formControl}>
+    <Card className={classes['add-user-form']}>
+      <form onSubmit={addUserHandler}>
+        <div className={classes['form-controls']}>
           <label htmlFor="name">Name</label>
           <input
             id="name"
@@ -51,8 +53,6 @@ const AddUserForm = ({ onAddUser }) => {
             value={userData.name}
             onChange={(e) => inputChangeHandler('name', e)}
           />
-        </div>
-        <div className={classes.formControl}>
           <label htmlFor="age">Age (Years)</label>
           <input
             id="age"
@@ -61,11 +61,11 @@ const AddUserForm = ({ onAddUser }) => {
             onChange={(e) => inputChangeHandler('age', e)}
           />
         </div>
-      </div>
-      <div className={classes.formActions}>
-        <button>Add User</button>
-      </div>
-    </form>
+        <div className={classes['form-actions']}>
+          <button>Add User</button>
+        </div>
+      </form>
+    </Card>
   );
 };
 

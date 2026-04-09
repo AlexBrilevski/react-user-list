@@ -16,9 +16,7 @@ function App() {
 
   return (
     <div>
-      <Card>
-        <AddUserForm onAddUser={addUser} />
-      </Card>
+      <AddUserForm onAddUser={addUser} />
       <Card>
         <UsersList users={users} />
       </Card>
