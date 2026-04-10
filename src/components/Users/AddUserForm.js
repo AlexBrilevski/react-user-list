@@ -16,18 +16,21 @@ const AddUserForm = ({ onAddUser }) => {
   const addUserHandler = (e) => {
     e.preventDefault();
     console.log(userData);
+    const { name, age } = userData;
 
-    if (userData.name.length === 0) {
-      console.log('Please enter user name');
+    if (name.trim().length === 0 ||
+      (typeof age === 'string' && age.trim().length === 0)
+    ) {
+      console.log('Please enter user name and age');
       return;
     }
 
-    if (userData.name.length < 3) {
+    if (name.trim().length < 3) {
       console.log('User name must be at least 3 characters long');
       return;
     }
 
-    if (userData.age <= 0) {
+    if (+age < 1) {
       console.log('User age must be at greater than 0');
       return;
     }
