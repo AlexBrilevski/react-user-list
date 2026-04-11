@@ -7,9 +7,11 @@ const ErrorMessage = ({ message, onClose }) => {
   return (
     <Card className={classes['input-validation-error']}>
       {message}
-      <Button onClick={onClose}>
-        Ok
-      </Button>
+      <div className={classes.actions}>
+        <Button onClick={onClose}>
+          Ok
+        </Button>
+      </div>
     </Card>
   );
 };
