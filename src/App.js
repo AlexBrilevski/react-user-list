@@ -16,7 +16,7 @@ function App() {
   return (
     <div>
       <AddUserForm onAddUser={addUser} />
-      <UsersList users={users} />
+      {users.length > 0 && <UsersList users={users} />}
     </div>
   );
 }

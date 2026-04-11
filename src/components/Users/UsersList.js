@@ -5,19 +5,9 @@ import Card from '../UI/Card';
 import classes from './UsersList.module.css';
 
 const UsersList = ({ users }) => {
-  if (users.length === 0) {
-    return (
-      <Card>
-        <p className={classes['fallback-text']}>
-          No users added yet.
-        </p>
-      </Card>
-    );
-  }
-
   return (
-    <Card>
-      <ul className={classes['users-list']}>
+    <Card className={classes['users-list']}>
+      <ul>
         {users.map(user => (
           <li key={user.id}>
             <UserItem {...user} />
