@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import Card from '../UI/Card';
 import Button from '../UI/Button';
-import ErrorMessage from '../UI/ErrorMessage';
+import ErrorModal from '../UI/ErrorModal';
 
 import classes from './AddUserFrom.module.css';
 
@@ -22,17 +22,26 @@ const AddUserForm = ({ onAddUser }) => {
     if (name.trim().length === 0 ||
       (typeof age === 'string' && age.trim().length === 0)
     ) {
-      setValidationError('Please enter user name and age');
+      setValidationError({
+        title: 'Invalid input',
+        message: 'Please enter user name and age (non-empty values).',
+      });
       return;
     }
 
     if (name.trim().length < 3) {
-      setValidationError('User name must be at least 3 characters long');
+      setValidationError({
+        title: 'Invalid name',
+        message: 'User name must be at least 3 characters long.',
+      });
       return;
     }
 
     if (+age < 1) {
-      setValidationError('User age must be at greater than 0');
+      setValidationError({
+        title: 'Invalid age',
+        message: 'User age must be at greater than 0.',
+      });
       return;
     }
 
@@ -77,9 +86,9 @@ const AddUserForm = ({ onAddUser }) => {
         </form>
       </Card>
       {validationError && (
-        <ErrorMessage
-          message={validationError}
-          onClose={() => setValidationError(null)}
+        <ErrorModal
+          error={validationError}
+          onConfirm={() => setValidationError(null)}
         />
       )}
     </>
